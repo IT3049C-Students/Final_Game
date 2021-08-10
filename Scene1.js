@@ -18,6 +18,10 @@ class Scene1 extends Phaser.Scene {
       frameWidth: 64,
         frameHeight: 64
     });
+    this.load.spritesheet("ship4", "assets/spritesheets/ship4.png", {
+          frameWidth: 64,
+          frameHeight: 64
+    });
     this.load.spritesheet("explosion", "assets/spritesheets/explosion.png",{
         frameWidth: 32,
         frameHeight: 32
@@ -61,7 +65,12 @@ class Scene1 extends Phaser.Scene {
         frameRate: 60,
       repeat: -1
     });
-
+    this.anims.create({
+          key: "ship4_anim",
+          frames: this.anims.generateFrameNumbers("ship4"),
+          frameRate: 60,
+          repeat: -1
+    });
     this.anims.create({
       key: "explode",
       frames: this.anims.generateFrameNumbers("explosion"),
