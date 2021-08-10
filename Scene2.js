@@ -95,6 +95,8 @@ class Scene2 extends Phaser.Scene {
     this.explosionSound = this.sound.add("audio_explosion");
     this.pickupSound = this.sound.add("audio_pickup");
 
+    this.music = this.sound.add("music");
+
   pickPowerUp(player, powerUp) {
     powerUp.disableBody(true, true);
   }
@@ -153,6 +155,8 @@ class Scene2 extends Phaser.Scene {
 
     // 2.1 spawn an explosion animation
     var explosion = new Explosion(this, enemy.x, enemy.y);
+
+    this.explosionSound.play();
 
     projectile.destroy();
     this.resetShipPos(enemy);
