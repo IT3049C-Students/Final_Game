@@ -89,7 +89,11 @@ class Scene2 extends Phaser.Scene {
     var scoreFormated = this.zeroPad(this.score, 6);
     this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE " + scoreFormated  , 16);
 
-  }
+    }
+    //audio
+    this.beamSound = this.sound.add("audio_beam");
+    this.explosionSound = this.sound.add("audio_explosion");
+    this.pickupSound = this.sound.add("audio_pickup");
 
   pickPowerUp(player, powerUp) {
     powerUp.disableBody(true, true);
@@ -202,7 +206,7 @@ class Scene2 extends Phaser.Scene {
 
   shootBeam() {
       var beam = new Beam(this);
-
+    this.beamSound.play();
   }
 
 
