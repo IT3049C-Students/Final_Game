@@ -37,15 +37,11 @@ class Scene1 extends Phaser.Scene {
     });
 
     this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
-      this.load.audio('beam_sfx', ['audio/beam_sfx.ogg', 'audio/beam_sfx.mp3', 'audio/beam_sfx.wav']);
-      this.load.audio('Music', ['audio/Music.ogg', 'audio/Music.mp3', 'audio/Music.wav']);
+
   }
 
 function create()
 {
-      //music
-    var  music = this.sound.add("Music");
-    music.play();
     this.add.text(20, 20, "Loading game...");
     this.scene.start("playGame");
 
