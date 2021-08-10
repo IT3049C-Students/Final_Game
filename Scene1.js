@@ -8,15 +8,15 @@ class Scene1 extends Phaser.Scene {
     //
     this.load.spritesheet("ship", "assets/spritesheets/ship.png",{
       frameWidth: 32,
-        frameHeight: 32
+      frameHeight: 32
     });
     this.load.spritesheet("ship2", "assets/spritesheets/ship2.png",{
       frameWidth: 64,
       frameHeight: 32
     });
     this.load.spritesheet("ship3", "assets/spritesheets/ship3.png",{
-      frameWidth: 32,
-      frameHeight: 32
+      frameWidth: 64,
+        frameHeight: 64
     });
     this.load.spritesheet("explosion", "assets/spritesheets/explosion.png",{
         frameWidth: 32,
@@ -28,25 +28,17 @@ class Scene1 extends Phaser.Scene {
     });
     this.load.spritesheet("player", "assets/spritesheets/player.png",{
         frameWidth: 32,
-      frameHeight: 48
+      frameHeight: 24
     });
     this.load.spritesheet("beam", "assets/spritesheets/beam.png",{
         frameWidth: 32,
-        frameHeight: 32
+      frameHeight: 32
     });
 
     this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
-
-      this.load.audio("audio_beam", ["assets/audio/beam.ogg", "assets/audio/beam.mp3"]);
-      this.load.audio("audio_explosion", ["assets/audio/explosion.ogg", "assets/audio/explosion.mp3"]);
-      this.load.audio("audio_pickup", ["assets/audio/pickup.ogg", "assets/audio/pickup.mp3"]);
-      this.load.audio("music", ["assets/audio/music.ogg", "assets/audio/music.mp3"]);
   }
 
   create() {
-
-
-
     this.add.text(20, 20, "Loading game...");
     this.scene.start("playGame");
 
@@ -107,9 +99,8 @@ class Scene1 extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers("beam"),
       frameRate: 20,
       repeat: -1
+
     });
-
-
 
   }
 }
