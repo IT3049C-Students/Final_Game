@@ -36,6 +36,7 @@ class Scene1 extends Phaser.Scene {
     });
 
     this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
+    this.load.audio("beam_sfx", 'assets/audio/beam_sfx.ogg')
   }
 
   create() {
@@ -99,6 +100,7 @@ class Scene1 extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers("beam"),
       frameRate: 20,
       repeat: -1
+
     });
 
   }
