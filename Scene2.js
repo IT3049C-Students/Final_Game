@@ -89,28 +89,46 @@ class Scene2 extends Phaser.Scene {
     var scoreFormated = this.zeroPad(this.score, 6);
     this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE " + scoreFormated  , 16);
 
+    // 1.2 create the sounds to be used
+    this.beamSound = this.sound.add("audio_beam");
+    this.explosionSound = this.sound.add("audio_explosion");
+    this.pickupSound = this.sound.add("audio_pickup");
+
+    // 2.1 create music
+    this.music = this.sound.add("music");
+
+    var musicConfig = {
+      mute: false,
+      volume: 1,
+      rate: 1,
+      detune: 0,
+      seek: 0,
+      loop: false,
+      delay: 0
+    }
+
+    this.music.play(musicConfig);
+
   }
 
   pickPowerUp(player, powerUp) {
     powerUp.disableBody(true, true);
+    // 1.4 play sounds
+    this.pickupSound.play();
   }
 
   hurtPlayer(player, enemy) {
 
     this.resetShipPos(enemy);
 
-    // 4.3 don't hurt the player if it is invincible
     if(this.player.alpha < 1){
         return;
     }
 
-    // 2.2 spawn a explosion animation
     var explosion = new Explosion(this, player.x, player.y);
 
-    // 2.3 disable the player and hide it
     player.disableBody(true, true);
 
-    // 3.1 after a time enable the player again
     this.time.addEvent({
       delay: 1000,
       callback: this.resetPlayer,
@@ -120,18 +138,13 @@ class Scene2 extends Phaser.Scene {
   }
 
   resetPlayer(){
-    // 3.2 enable the player again
     var x = config.width / 2 - 8;
     var y = config.height + 64;
     this.player.enableBody(true, x, y, true, true);
 
 
-    //
-    // 4.1 make the player transparent to indicate invulnerability
     this.player.alpha = 0.5;
-    //
-    //
-    // 4.2 move the ship from outside the screen to its original position
+
     var tween = this.tweens.add({
       targets: this.player,
       y: config.height - 64,
@@ -147,15 +160,17 @@ class Scene2 extends Phaser.Scene {
 
   hitEnemy(projectile, enemy) {
 
-    // 2.1 spawn an explosion animation
     var explosion = new Explosion(this, enemy.x, enemy.y);
 
     projectile.destroy();
     this.resetShipPos(enemy);
     this.score += 15;
 
-     var scoreFormated = this.zeroPad(this.score, 8);
+     var scoreFormated = this.zeroPad(this.score, 6);
      this.scoreLabel.text = "SCORE " + scoreFormated;
+
+     // 1.4 play sounds
+     this.explosionSound.play();
   }
 
 
@@ -202,7 +217,8 @@ class Scene2 extends Phaser.Scene {
 
   shootBeam() {
       var beam = new Beam(this);
-
+      // 1.3 play sounds
+      this.beamSound.play();
   }
 
 

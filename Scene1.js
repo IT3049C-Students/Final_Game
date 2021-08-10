@@ -7,41 +7,40 @@ class Scene1 extends Phaser.Scene {
     this.load.image("background", "assets/images/background.png");
     //
     this.load.spritesheet("ship", "assets/spritesheets/ship.png",{
-      frameWidth: 16,
-      frameHeight: 16
+      frameWidth: 32,
+        frameHeight: 32
     });
     this.load.spritesheet("ship2", "assets/spritesheets/ship2.png",{
-      frameWidth: 32,
-      frameHeight: 16
+      frameWidth: 64,
+      frameHeight: 32
     });
     this.load.spritesheet("ship3", "assets/spritesheets/ship3.png",{
       frameWidth: 32,
       frameHeight: 32
     });
     this.load.spritesheet("explosion", "assets/spritesheets/explosion.png",{
-      frameWidth: 16,
-      frameHeight: 16
+        frameWidth: 32,
+        frameHeight: 32
     });
     this.load.spritesheet("power-up", "assets/spritesheets/power-up.png",{
-      frameWidth: 16,
-      frameHeight: 16
+        frameWidth: 32,
+        frameHeight: 32
     });
     this.load.spritesheet("player", "assets/spritesheets/player.png",{
-      frameWidth: 16,
-      frameHeight: 24
+        frameWidth: 32,
+      frameHeight: 48
     });
     this.load.spritesheet("beam", "assets/spritesheets/beam.png",{
-      frameWidth: 16,
-      frameHeight: 16
+        frameWidth: 32,
+        frameHeight: 32
     });
 
     this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
 
-    // 1.1 load sounds in both formats mp3 and ogg
-    this.load.audio("audio_beam", ["assets/sounds/beam.ogg", "assets/sounds/beam.mp3"]);
-    this.load.audio("audio_explosion", ["assets/sounds/explosion.ogg", "assets/sounds/explosion.mp3"]);
-    this.load.audio("audio_pickup", ["assets/sounds/pickup.ogg", "assets/sounds/pickup.mp3"]);
-    this.load.audio("music", ["assets/sounds/sci-fi_platformer12.ogg", "assets/sounds/sci-fi_platformer12.mp3"]);
+      this.load.audio("audio_beam", ["assets/audio/beam.ogg", "assets/audio/beam.mp3"]);
+      this.load.audio("audio_explosion", ["assets/audio/explosion.ogg", "assets/audio/explosion.mp3"]);
+      this.load.audio("audio_pickup", ["assets/audio/pickup.ogg", "assets/audio/pickup.mp3"]);
+      this.load.audio("music", ["assets/audio/music.ogg", "assets/audio/music.mp3"]);
   }
 
   create() {
