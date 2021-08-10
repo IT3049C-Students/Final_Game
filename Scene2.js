@@ -202,8 +202,7 @@ class Scene2 extends Phaser.Scene {
 
   shootBeam() {
       var beam = new Beam(this);
-      var snd = game.add.audio("beam_sfx");
-      snd.play();
+
   }
 
 
