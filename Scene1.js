@@ -46,26 +46,26 @@ class Scene1 extends Phaser.Scene {
     this.anims.create({
       key: "ship1_anim",
       frames: this.anims.generateFrameNumbers("ship"),
-        frameRate: 30,
+        frameRate: 60,
       repeat: -1
     });
     this.anims.create({
       key: "ship2_anim",
       frames: this.anims.generateFrameNumbers("ship2"),
-      frameRate: 30,
+        frameRate: 60,
       repeat: -1
     });
     this.anims.create({
       key: "ship3_anim",
       frames: this.anims.generateFrameNumbers("ship3"),
-        frameRate: 30,
+        frameRate: 60,
       repeat: -1
     });
 
     this.anims.create({
       key: "explode",
       frames: this.anims.generateFrameNumbers("explosion"),
-        frameRate: 30,
+        frameRate: 60,
       repeat: 0,
       hideOnComplete: true
     });
