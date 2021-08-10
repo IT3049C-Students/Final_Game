@@ -28,15 +28,14 @@ class Scene1 extends Phaser.Scene {
     });
     this.load.spritesheet("player", "assets/spritesheets/player.png",{
         frameWidth: 32,
-      frameHeight: 48
+      frameHeight: 24
     });
     this.load.spritesheet("beam", "assets/spritesheets/beam.png",{
         frameWidth: 32,
-        frameHeight: 32
+      frameHeight: 32
     });
 
     this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
-    this.load.audio('beam_sfx', 'assets/audio/beam_sfx.ogg')
   }
 
   create() {
@@ -46,26 +45,26 @@ class Scene1 extends Phaser.Scene {
     this.anims.create({
       key: "ship1_anim",
       frames: this.anims.generateFrameNumbers("ship"),
-        frameRate: 60,
+      frameRate: 20,
       repeat: -1
     });
     this.anims.create({
       key: "ship2_anim",
       frames: this.anims.generateFrameNumbers("ship2"),
-        frameRate: 60,
+      frameRate: 20,
       repeat: -1
     });
     this.anims.create({
       key: "ship3_anim",
       frames: this.anims.generateFrameNumbers("ship3"),
-        frameRate: 60,
+      frameRate: 20,
       repeat: -1
     });
 
     this.anims.create({
       key: "explode",
       frames: this.anims.generateFrameNumbers("explosion"),
-        frameRate: 60,
+      frameRate: 20,
       repeat: 0,
       hideOnComplete: true
     });
@@ -85,20 +84,20 @@ class Scene1 extends Phaser.Scene {
         start: 2,
         end: 3
       }),
-        frameRate: 30,
+      frameRate: 20,
       repeat: -1
     });
     this.anims.create({
       key: "thrust",
       frames: this.anims.generateFrameNumbers("player"),
-        frameRate: 30,
+      frameRate: 20,
       repeat: -1
     });
 
     this.anims.create({
       key: "beam_anim",
       frames: this.anims.generateFrameNumbers("beam"),
-        frameRate: 30,
+      frameRate: 20,
       repeat: -1
 
     });
