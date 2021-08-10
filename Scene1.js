@@ -44,8 +44,8 @@ class Scene1 extends Phaser.Scene {
 function create()
 {
       //music
-    music = this.add.audio("Music");
-    music.play('', 0, 1, true);
+    var  music = this.sound.add("Music");
+    music.play();
     this.add.text(20, 20, "Loading game...");
     this.scene.start("playGame");
 
