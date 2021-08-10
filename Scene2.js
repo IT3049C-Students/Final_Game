@@ -95,7 +95,6 @@ class Scene2 extends Phaser.Scene {
     this.explosionSound = this.sound.add("audio_explosion");
     this.pickupSound = this.sound.add("audio_pickup");
 
-    this.music = this.sound.add("music");
 
   pickPowerUp(player, powerUp) {
     powerUp.disableBody(true, true);
