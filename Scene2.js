@@ -154,7 +154,7 @@ class Scene2 extends Phaser.Scene {
     this.resetShipPos(enemy);
     this.score += 15;
 
-     var scoreFormated = this.zeroPad(this.score, 6);
+     var scoreFormated = this.zeroPad(this.score, 8);
      this.scoreLabel.text = "SCORE " + scoreFormated;
   }
 
