@@ -3,8 +3,7 @@ class Scene1 extends Phaser.Scene {
     super("bootGame");
   }
 
-   preload()
-{
+  preload(){
     this.load.image("background", "assets/images/background.png");
     //
     this.load.spritesheet("ship", "assets/spritesheets/ship.png",{
@@ -37,11 +36,10 @@ class Scene1 extends Phaser.Scene {
     });
 
     this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
-
+    this.load.audio('beam_sfx', 'assets/audio/beam_sfx.ogg')
   }
 
- create()
-{
+  create() {
     this.add.text(20, 20, "Loading game...");
     this.scene.start("playGame");
 
