@@ -3,7 +3,8 @@ class Scene1 extends Phaser.Scene {
     super("bootGame");
   }
 
-  preload(){
+  function preload()
+{
     this.load.image("background", "assets/images/background.png");
     //
     this.load.spritesheet("ship", "assets/spritesheets/ship.png",{
@@ -40,7 +41,8 @@ class Scene1 extends Phaser.Scene {
       this.load.audio('Music', ['audio/Music.ogg', 'audio/Music.mp3', 'audio/Music.wav']);
   }
 
-    create() {
+function create()
+{
       //music
     music = this.add.audio("Music");
     music.play('', 0, 1, true);
