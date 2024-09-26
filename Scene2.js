@@ -9,23 +9,28 @@ class Scene2 extends Phaser.Scene {
     this.background = this.add.tileSprite(0, 0, config.width, config.height, "background");
     this.background.setOrigin(0, 0);
 
-    this.ship1 = this.add.sprite(config.width / 2 - 50, config.height / 2, "ship");
-    this.ship2 = this.add.sprite(config.width / 2, config.height / 2, "ship2");
-    this.ship3 = this.add.sprite(config.width / 2 + 50, config.height / 2, "ship3");
+    this.ship1 = this.add.sprite(config.width / 2, config.height / 2, "ship");
+    this.ship2 = this.add.sprite(config.width / 2 + 50, config.height / 2, "ship2");
+    this.ship3 = this.add.sprite(config.width / 2 + 100, config.height / 2, "ship3");
+    this.ship4 = this.add.sprite(config.width / 2 + 150, config.height / 2, "ship4");
 
     this.enemies = this.physics.add.group();
     this.enemies.add(this.ship1);
     this.enemies.add(this.ship2);
     this.enemies.add(this.ship3);
+    this.enemies.add(this.ship4);
 
 
     this.ship1.play("ship1_anim");
     this.ship2.play("ship2_anim");
     this.ship3.play("ship3_anim");
+    this.ship4.play("ship4_anim");
+
 
     this.ship1.setInteractive();
     this.ship2.setInteractive();
     this.ship3.setInteractive();
+    this.ship4.setInteractive();
 
     this.input.on('gameobjectdown', this.destroyShip, this);
 
@@ -154,7 +159,7 @@ class Scene2 extends Phaser.Scene {
     this.resetShipPos(enemy);
     this.score += 15;
 
-     var scoreFormated = this.zeroPad(this.score, 6);
+     var scoreFormated = this.zeroPad(this.score, 8);
      this.scoreLabel.text = "SCORE " + scoreFormated;
   }
 
@@ -177,11 +182,12 @@ class Scene2 extends Phaser.Scene {
     this.moveShip(this.ship1, 1);
     this.moveShip(this.ship2, 2);
     this.moveShip(this.ship3, 3);
+    this.moveShip(this.ship4, 4);
     // for testing purpouses
     // this.ship1.destroy();
     // this.ship2.destroy();
     // this.ship3.destroy();
-
+    // this.ship4.destroy();
     this.background.tilePositionY -= 0.5;
 
 
@@ -202,7 +208,8 @@ class Scene2 extends Phaser.Scene {
 
   shootBeam() {
       var beam = new Beam(this);
-
+      var snd = game.add.audio("beam_sfx");
+      snd.play();
   }
 
 

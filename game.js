@@ -1,12 +1,12 @@
 var gameSettings = {
-  playerSpeed: 175,
+  playerSpeed: 125,
   maxPowerups: 3,
   powerUpVel: 55,
 }
 
 var config = {
-  width: 256,
-  height: 272,
+  width: 512,
+  height: 544,
   backgroundColor: 0x000000,
   scene: [Scene1, Scene2],
   pixelArt: true,
